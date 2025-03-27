@@ -8,7 +8,6 @@ function PremioTeclado() {
   const numRefs = [useRef(), useRef(), useRef(), useRef()];
   const serieRefs = [useRef(), useRef()];
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const resetInputs = () => {
       numRefs.forEach(ref => { if (ref.current) ref.current.value = ""; });
