@@ -68,7 +68,7 @@
   overflow: hidden;
 }
 
-.divider::after {
+/* .divider::after {
   content: "";
   position: absolute;
   top: 0;
@@ -77,16 +77,16 @@
   height: 100%;
   background: linear-gradient(90deg, transparent, #ffdb75, transparent);
   animation: shine-effect 1s infinite linear;
-}
+} */
 
-@keyframes shine-effect {
+/* @keyframes shine-effect {
   0% {
       left: -100%;
   }
   100% {
       left: 100%;
   }
-}
+} */
 
 @media (max-width: 768px) {
   .navbar {

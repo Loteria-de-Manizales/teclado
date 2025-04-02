@@ -60,49 +60,61 @@ function PremioTeclado() {
       }
     }
   };
-
-  return (
-    <div>      
-      <div className="premio-actual-container">
-        <p className="premio-titulo">
-          PREMIO {premios[currentIndex].titulo} POR {premios[currentIndex].valor}
-        </p>
-        <div className="grid-container">
-          <div className="grid-header">NÚMERO</div>
-          <div className="grid-header">SERIE</div>
+    
+    return (
+      <div className="container">
+        {/* Título del premio en una fila separada */}
+        <div className="title-wrapper">
+          <p className="prize-title">
+            PREMIO {premios[currentIndex].titulo} POR {premios[currentIndex].valor}
+          </p>
         </div>
-        <div className="grid-inputs">
-          <div className="input-group">
-            {numRefs.map((ref, i) => (
-              <input
-                key={i}
-                ref={ref}
-                type="text"
-                className="input-circle"
-                maxLength="1"
-                onInput={(e) => handleInput(e, i, numRefs, serieRefs)}
-                onKeyDown={(e) => handleKeyDown(e, i, numRefs, serieRefs)}
-              />
-            ))}
+    
+        {/* Sección de inputs */}
+        <div className="form-wrapper">
+          {/* Columna izquierda */}
+          <div className="left-column">
+            <p className="title">NÚMERO</p>
+            <div className="input-group">
+              
+              <div className="input-group">
+               {numRefs.map((ref, i) => (
+                 <input
+                   key={i}
+                   ref={ref}
+                   type="text"
+                   className="input-circle"
+                   maxLength="1"
+                   onInput={(e) => handleInput(e, i, numRefs, serieRefs)}
+                   onKeyDown={(e) => handleKeyDown(e, i, numRefs, serieRefs)}
+                 />
+               ))}
+             </div>
+            </div>
           </div>
+    
+          {/* Columna derecha */}
+          <div className="right-column">
+            <p className="title">SERIE</p>
+           
+                    <div className="input-group">
+               {serieRefs.map((ref, i) => (
+                 <input
+                   key={i}
+                   ref={ref}
+                   type="text"
+                   className="input-circle"
+                   maxLength={i === 0 ? "2" : "1"}
+                   onInput={(e) => handleInput(e, i, serieRefs, null, i === 0 ? 2 : 1)}
+                   onKeyDown={(e) => handleKeyDown(e, i, serieRefs, numRefs)}
+                 />
+               ))}
+             </div>
 
-          <div className="input-group">
-            {serieRefs.map((ref, i) => (
-              <input
-                key={i}
-                ref={ref}
-                type="text"
-                className="input-circle"
-                maxLength={i === 0 ? "2" : "1"}
-                onInput={(e) => handleInput(e, i, serieRefs, null, i === 0 ? 2 : 1)}
-                onKeyDown={(e) => handleKeyDown(e, i, serieRefs, numRefs)}
-              />
-            ))}
           </div>
         </div>
-      </div>
-      <SorteoInfo />
-    </div>
+        <SorteoInfo />
+      </div>  
   );
 }
 

@@ -48,7 +48,7 @@
   }
   
   .sorteo-label, .sorteo-value {
-      font-size: 14px; /* Reduce el tamaño de la fecha para que no ocupe dos líneas */
+      font-size: 20px; /* Reduce el tamaño de la fecha para que no ocupe dos líneas */
   }
 }
 
