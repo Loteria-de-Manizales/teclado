@@ -6,15 +6,16 @@ function SorteoInfo() {
   return (
     <div className="sorteo-info">
       <div className="sorteo-container">
-        <div className="sorteo-content">
-          <div className="sorteo-item">
-            <span className="sorteo-label">SORTEO:</span>
-            <span className="sorteo-value">{sorteo.sorteo}</span>
-          </div>
-          <div className="sorteo-item">
-            <span className="sorteo-label">FECHA:</span>
-            <span className="sorteo-value">{sorteo.fecha}</span>
-          </div>
+        {/* Columna izquierda alineada a la izquierda */}
+        <div className="sorteo-item left">
+          <span className="sorteo-label">SORTEO:</span>
+          <span className="sorteo-value">{sorteo.sorteo}</span>
+        </div>
+
+        {/* Columna derecha alineada a la derecha */}
+        <div className="sorteo-item right">
+          <span className="sorteo-label">FECHA:</span>
+          <span className="sorteo-value">{sorteo.fecha}</span>
         </div>
       </div>
     </div>
