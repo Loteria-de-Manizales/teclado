@@ -12,7 +12,7 @@
   text-align: center;
   border: 10px solid #1a428a;
   display: block;
-  font-size: 40px;
+  font-size: 50px;
 }
 
 
@@ -49,10 +49,20 @@
   flex-wrap: wrap;
 }
 
+
+.left-column, .right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .title {
+  margin-top: 10px; /* Espacio entre el input-group y el título */
+  text-align: center;
   font-size: 20px;
   font-weight: bold;
 }
+
 
 .input-group {
   display: flex;
@@ -64,21 +74,39 @@
 
 .input-group input {
   width: 100%;
-  max-width: 150px;
+  max-width: 200px;
   height: auto;
   aspect-ratio: 1/1;
   border-radius: 50% !important;
   border: 5px solid #e9be6c;
   text-align: center;
-  font-size: 6vw;
+  font-size: 8vw;
   color: #1a428a;
   font-weight: bold;
-  caret-color: #E0E0E0
+  caret-color: #E0E0E0;
+  display: flex;
+  justify-content: center; /* Centra los inputs */
+  align-items: center;
+  flex-wrap: wrap; /* Evita que los inputs se desborden */
+  gap: 8px; /* Espaciado entre los elementos */
+  width: 100%; /* Usa todo el ancho disponible */
 }
+
 
 .input-circle {
   font-size: 4vw;
-}
+  width: clamp(40px, 8vw, 80px); /* Tamaño responsive */
+  height: clamp(40px, 8vw, 80px); /* Mantiene la proporción */
+  font-size: clamp(14px, 2vw, 24px); /* Tamaño del texto adaptable */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid #e9be6c; /* Ajusta según tu diseño */
+  background-color: white;
+  text-align: center;
+} 
+
 
 @media (max-width: 600px) {
   .form-wrapper {
@@ -102,4 +130,40 @@
   }
 }
 
+/* Asegura que siempre estén en una fila en pantallas grandes */
+@media (min-width: 600px) {
+  .input-group {
+    flex-wrap: nowrap; /* Fuerza la alineación horizontal */
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+
+@media (max-width: 400px) {
+  .form-wrapper {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .left-column,
+  .right-column {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .input-group {
+      justify-content: center;
+  }
+  
+  .input-group input {
+      font-size: 3vw;
+      max-width: 50px;
+  }
+
+  .input-circle {
+    width: 14px;
+    height: 140px;
+    font-size: 12px;
+  }
+}
 

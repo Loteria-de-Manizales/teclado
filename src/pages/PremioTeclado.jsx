@@ -23,7 +23,7 @@ function PremioTeclado() {
       } else if (e.key.toLowerCase() === "w") {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + premios.length) % premios.length);
         resetInputs();
-      } 
+      }
     };
 
     resetInputs();
@@ -61,61 +61,57 @@ function PremioTeclado() {
       }
     }
   };
-    
-    return (
-      <div className="container">
-        {/* Título del premio en una fila separada */}
-        <div className="title-wrapper">
-          <p className="prize-title">
-            PREMIO {premios[currentIndex].titulo} POR {premios[currentIndex].valor}
-          </p>
-        </div>
-    
-        {/* Sección de inputs */}
-        <div className="form-wrapper">
-          {/* Columna izquierda */}
-          <div className="left-column">
-            <p className="title">NÚMERO</p>
-            <div className="input-group">
-              
-              <div className="input-group">
-               {numRefs.map((ref, i) => (
-                 <input
-                   key={i}
-                   ref={ref}
-                   type="text"
-                   className="input-circle"
-                   maxLength="1"
-                   onInput={(e) => handleInput(e, i, numRefs, serieRefs)}
-                   onKeyDown={(e) => handleKeyDown(e, i, numRefs, serieRefs)}
-                 />
-               ))}
-             </div>
-            </div>
-          </div>
-    
-          {/* Columna derecha */}
-          <div className="right-column">
-            <p className="title">SERIE</p>
-           
-                    <div className="input-group">
-               {serieRefs.map((ref, i) => (
-                 <input
-                   key={i}
-                   ref={ref}
-                   type="text"
-                   className="input-circle"
-                   maxLength={i === 0 ? "2" : "1"}
-                   onInput={(e) => handleInput(e, i, serieRefs, null, i === 0 ? 2 : 1)}
-                   onKeyDown={(e) => handleKeyDown(e, i, serieRefs, numRefs)}
-                 />
-               ))}
-             </div>
 
+  return (
+    <div className="container">
+      {/* Título del premio en una fila separada */}
+      <div className="title-wrapper">
+        <p className="prize-title">
+          PREMIO {premios[currentIndex].titulo} POR {premios[currentIndex].valor}
+        </p>
+      </div>
+
+      {/* Sección de inputs */}
+      <div className="form-wrapper">
+        {/* Columna izquierda */}
+        <div className="left-column">
+          <div className="input-group">
+            {numRefs.map((ref, i) => (
+              <input
+                key={i}
+                ref={ref}
+                type="text"
+                className="input-circle"
+                maxLength="1"
+                onInput={(e) => handleInput(e, i, numRefs, serieRefs)}
+                onKeyDown={(e) => handleKeyDown(e, i, numRefs, serieRefs)}
+              />
+            ))}
           </div>
+          <p className="title">NÚMERO</p>
         </div>
-        <SorteoInfo />
-      </div>  
+
+        {/* Columna derecha */}
+        <div className="right-column">
+          <div className="input-group">
+            {serieRefs.map((ref, i) => (
+              <input
+                key={i}
+                ref={ref}
+                type="text"
+                className="input-circle"
+                maxLength={i === 0 ? "2" : "1"}
+                onInput={(e) => handleInput(e, i, serieRefs, null, i === 0 ? 2 : 1)}
+                onKeyDown={(e) => handleKeyDown(e, i, serieRefs, numRefs)}
+              />
+            ))}
+          </div>
+          <p className="title">SERIE</p>
+        </div>
+
+      </div>
+      <SorteoInfo />
+    </div>
   );
 }
 
